@@ -20,7 +20,7 @@ class Cmdata(models.Model):
         unique_together = ('title', 'location', 'crime')
 
     def __str__(self):
-        return self.crime
+        return self.title
 
     def was_published_recently(self):
         return self.issuetime >= timezone.now() - datetime.timedelta(days=3)
