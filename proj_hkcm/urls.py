@@ -20,3 +20,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^hkcm/', include('hkcm.urls')),
 ]
+
+# urlpatterns += patterns('',
+#                         )

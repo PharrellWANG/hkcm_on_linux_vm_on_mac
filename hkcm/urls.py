@@ -1,1 +1,1 @@
-from django.conf.urls import urlfrom . import viewsurlpatterns = [    url(r'^$', views.index, name='index'),]
+from django.conf.urls import urlfrom . import views,list_jsonurlpatterns = [    # url(r'^$', views.index, name='index'),    url(r'^$', views.map_page, name='map'),    url(r'^filters$', views.filters, name='filters'),    # json list    url(r'^FilterCrimeListJson/$', list_json.FilterCrimeListJson.as_view()),]
