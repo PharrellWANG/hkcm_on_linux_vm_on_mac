@@ -2,15 +2,19 @@
   <dictionary name="Pharrell_WANG">
     <words>
       <w>cmdata</w>
+      <w>colnum</w>
       <w>cqonps</w>
+      <w>districtsclassification</w>
       <w>hkcm</w>
       <w>hkcrimemap</w>
       <w>hongkongdistricts</w>
+      <w>ifile</w>
       <w>infowindow</w>
       <w>lati</w>
       <w>loca</w>
       <w>longi</w>
       <w>proj</w>
+      <w>rownum</w>
       <w>scrollwheel</w>
     </words>
   </dictionary>

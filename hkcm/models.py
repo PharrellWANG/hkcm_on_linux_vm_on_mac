@@ -11,7 +11,7 @@ from django.utils.encoding import python_2_unicode_compatible
 @python_2_unicode_compatible
 class Cmdata(models.Model):
     issuetime = models.DateTimeField(null=True)
-    district = models.CharField(max_length=200,null=True)
+    district = models.CharField(max_length=200, null=True)
     location = models.CharField(max_length=200)
     crime = models.CharField(max_length=50)
     crimecat = models.CharField(max_length=50)
@@ -33,6 +33,17 @@ class Cmdata(models.Model):
 @python_2_unicode_compatible
 class HongKongDistricts(models.Model):
     location = models.CharField(max_length=200, unique=True)
+    latitude = models.FloatField(null=True)
+    longitude = models.FloatField(null=True)
+    Districts = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.location
+
+
+@python_2_unicode_compatible
+class DistrictsClassification(models.Model):
+    id_in_cmdata = models.FloatField(null=True)
     latitude = models.FloatField(null=True)
     longitude = models.FloatField(null=True)
     Districts = models.CharField(max_length=200)
