@@ -31,7 +31,7 @@ class Cmdata(models.Model):
 
 
 @python_2_unicode_compatible
-class HongKongDistricts(models.Model):
+class DistrictsForAllLocationsinLocaList(models.Model):
     location = models.CharField(max_length=200, unique=True)
     latitude = models.FloatField(null=True)
     longitude = models.FloatField(null=True)
@@ -49,7 +49,15 @@ class DistrictsClassification(models.Model):
     Districts = models.CharField(max_length=200)
 
     def __str__(self):
-        return self.location
+        return self.Districts
+
+
+@python_2_unicode_compatible
+class HongKongEighteenDistricts(models.Model):
+    Districts = models.CharField(max_length=200, unique=True)
+
+    def __str__(self):
+        return self.Districts
 
 
 @python_2_unicode_compatible
