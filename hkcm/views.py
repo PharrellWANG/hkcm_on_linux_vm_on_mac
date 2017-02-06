@@ -64,10 +64,85 @@ def map_page(request):
 
 
 def charts(request):
+    list_of_crimes = Cmdata.objects.all()
+    total_crimes = list_of_crimes.count()
+    caw = 0
+    eastern = 0
+    kowloon_city = 0
+    kwai_tsing = 0
+    kt = 0
+    north = 0
+    sk = 0
+    st = 0
+    ssp = 0
+    southern = 0
+    tp = 0
+    tw = 0
+    tm = 0
+    wc = 0
+    wts = 0
+    ytm = 0
+    yl = 0
+    island = 0
+
+    for x in list_of_crimes:
+        if str(x.district) == 'Central & Western':
+            caw += 1
+        elif str(x.district) == 'Eastern':
+            eastern += 1
+        elif str(x.district) == 'Kowloon City':
+            kowloon_city += 1
+        elif str(x.district) == 'Kwai Tsing':
+            kwai_tsing += 1
+        elif str(x.district) == 'Kwun Tong':
+            kt += 1
+        elif str(x.district) == 'North':
+            north += 1
+        elif str(x.district) == 'Sai Kung':
+            sk += 1
+        elif str(x.district) == 'Sha Tin':
+            st += 1
+        elif str(x.district) == 'Sham Shui Po':
+            ssp += 1
+        elif str(x.district) == 'Southern':
+            southern += 1
+        elif str(x.district) == 'Tai Po':
+            tp += 1
+        elif str(x.district) == 'Tsuen Wan':
+            tw += 1
+        elif str(x.district) == 'Tuen Mun':
+            tm += 1
+        elif str(x.district) == 'Wan Chai':
+            wc += 1
+        elif str(x.district) == 'Wong Tai Sin':
+            wts += 1
+        elif str(x.district) == 'Yau Tsim Mong':
+            ytm += 1
+        elif str(x.district) == 'Yuen Long':
+            yl += 1
+        elif str(x.district) == 'Island':
+            island += 1
+
     content = {
-        # 'outer_dic': outer_dic,
-        # 'le': length_of_records,
-        # 'crimecat_selector': crimecat_selector,
+        'total_crimes': total_crimes,
+        'caw': caw,
+        'eastern': eastern,
+        'kowloon_city': kowloon_city,
+        'kwai_tsing': kwai_tsing,
+        'kt': kt,
+        'north': north,
+        'sk': sk,
+        'st': st,
+        'ssp': ssp,
+        'southern': southern,
+        'tp': tp,
+        'tw': tw,
+        'tm': tm,
+        'wc': wc,
+        'wts': wts,
+        'ytm': ytm,
+        'yl': yl,
+        'island': island
     }
 
     return render(request, 'charts.html', content)

@@ -18,7 +18,6 @@ and open the template in the editor.
     position: relative;
 	width: 100%;
 	height:700px;
-	scrollwheel: false;
 }
 
 /* Optional: Makes the sample page fill the window. */
