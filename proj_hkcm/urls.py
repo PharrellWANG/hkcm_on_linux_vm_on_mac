@@ -18,7 +18,7 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^hkcm/', include('hkcm.urls')),
+    url(r'^', include('hkcm.urls', namespace="hkcm")),
 ]
 
 # urlpatterns += patterns('',
