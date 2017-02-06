@@ -11,13 +11,6 @@ log = logging.getLogger(__name__)
 log.debug("")
 
 
-def filters(request):
-    content = {
-    }
-
-    return render(request, 'filter.html', content)
-
-
 def map_page(request):
     outer_dic = OrderedDict()
     all_records = Cmdata.objects.all()
@@ -68,3 +61,13 @@ def map_page(request):
     }
 
     return render(request, 'index.html', content)
+
+
+def charts(request):
+    content = {
+        # 'outer_dic': outer_dic,
+        # 'le': length_of_records,
+        # 'crimecat_selector': crimecat_selector,
+    }
+
+    return render(request, 'charts.html', content)
