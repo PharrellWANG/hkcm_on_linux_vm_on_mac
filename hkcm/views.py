@@ -123,7 +123,57 @@ def charts(request):
         elif str(x.district) == 'Island':
             island += 1
 
+    list_for_finding_maximum_crime_region = [caw, eastern, kwai_tsing, kowloon_city, kt, sk, north, ssp, tp, tw, tm, wc,
+                                             wts, ytm, yl, island, st, southern]
+    maximum_crime_number = max(list_for_finding_maximum_crime_region)
+    location_name_of_maximum_crime = "Yau Tsim Mong"
+    if maximum_crime_number == ytm:
+        location_name_of_maximum_crime = "Yau Tsim Mong"
+    elif maximum_crime_number == caw:
+        location_name_of_maximum_crime = "Central & Western"
+    elif maximum_crime_number == eastern:
+        location_name_of_maximum_crime = "Eastern"
+    elif maximum_crime_number == kwai_tsing:
+        location_name_of_maximum_crime = "Kwai Tsing"
+    elif maximum_crime_number == kowloon_city:
+        location_name_of_maximum_crime = "Kowloon City"
+    elif maximum_crime_number == kt:
+        location_name_of_maximum_crime = "Kwun Tong"
+    elif maximum_crime_number == sk:
+        location_name_of_maximum_crime = "Sai Kung"
+    elif maximum_crime_number == north:
+        location_name_of_maximum_crime = "North"
+    elif maximum_crime_number == ssp:
+        location_name_of_maximum_crime = "Sham Shui Po"
+    elif maximum_crime_number == tp:
+        location_name_of_maximum_crime = "Tai Po"
+    elif maximum_crime_number == tw:
+        location_name_of_maximum_crime = "Tsuen Wan"
+    elif maximum_crime_number == tm:
+        location_name_of_maximum_crime = "Tuen Mun"
+    elif maximum_crime_number == wc:
+        location_name_of_maximum_crime = "Wan Chai"
+    elif maximum_crime_number == wts:
+        location_name_of_maximum_crime = "Wong Tai Sin"
+    elif maximum_crime_number == island:
+        location_name_of_maximum_crime = "Island"
+    elif maximum_crime_number == yl:
+        location_name_of_maximum_crime = "Yuen Long"
+    elif maximum_crime_number == st:
+        location_name_of_maximum_crime = "Sha Tin"
+    elif maximum_crime_number == southern:
+        location_name_of_maximum_crime = "Southern"
+
+    loc = location_name_of_maximum_crime
+    log.debug(maximum_crime_number)
+    log.debug(total_crimes)
+    max_rate = round(float(maximum_crime_number)/total_crimes, 3)
+    log.debug(max_rate)
+    log.debug(type(max_rate))
     content = {
+        'max_rate': max_rate,
+        'loc': loc,
+        'maximum_crime_number': maximum_crime_number,
         'total_crimes': total_crimes,
         'caw': caw,
         'eastern': eastern,
