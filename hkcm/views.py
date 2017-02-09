@@ -167,7 +167,7 @@ def charts(request):
     loc = location_name_of_maximum_crime
     log.debug(maximum_crime_number)
     log.debug(total_crimes)
-    max_rate = round(float(maximum_crime_number)/total_crimes, 3)
+    max_rate = round(float(maximum_crime_number)/total_crimes, 3) * 100
     log.debug(max_rate)
     log.debug(type(max_rate))
     content = {
