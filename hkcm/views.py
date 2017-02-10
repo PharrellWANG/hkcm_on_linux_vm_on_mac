@@ -123,7 +123,27 @@ def charts(request):
         elif str(x.district) == 'Island':
             island += 1
 
-    list_for_finding_maximum_crime_region = [caw, eastern, kwai_tsing, kowloon_city, kt, sk, north, ssp, tp, tw, tm, wc,
+    caw_crime_rate = caw / (246600.0 / 100000)
+    eastern_crime_rate = eastern / (574500.0 / 100000)
+    kowloon_city_crime_rate = kowloon_city / (405400.0 / 100000)
+    kwai_tsing_crime_rate = kwai_tsing / (507100.0 / 100000)
+    kt_crime_rate = kt / (641100.0 / 100000)
+    north_crime_rate = north / (310800.0 / 10000)
+    sk_crime_rate = sk / (457400.0 / 100000)
+    st_crime_rate = st / (660200.0 / 100000)
+    ssp_crime_rate = ssp / (390600.0 / 100000)
+    southern_crime_rate = southern / (269200 / 100000)
+    tp_crime_rate = tp / (307100.0 / 100000)
+    tw_crime_rate = tw / (303600.0 / 100000)
+    tm_crime_rate = tm / (495900.0 / 100000)
+    wc_crime_rate = wc / (150900.0 / 100000)
+    wts_crime_rate = wts / (426200.0 / 100000)
+    ytm_crime_rate = ytm / (318100.0 / 100000)
+    yl_crime_rate = yl / (607200.0 / 100000)
+    island_crime_rate = island / (146900.0 / 100000)
+
+    list_for_finding_maximum_crime_region = [caw, eastern, kwai_tsing, kowloon_city,
+                                             kt, sk, north, ssp, tp, tw, tm, wc,
                                              wts, ytm, yl, island, st, southern]
     maximum_crime_number = max(list_for_finding_maximum_crime_region)
     location_name_of_maximum_crime = "Yau Tsim Mong"
@@ -167,7 +187,7 @@ def charts(request):
     loc = location_name_of_maximum_crime
     log.debug(maximum_crime_number)
     log.debug(total_crimes)
-    max_rate = round(float(maximum_crime_number)/total_crimes, 3) * 100
+    max_rate = round(float(maximum_crime_number) / total_crimes, 3) * 100
     log.debug(max_rate)
     log.debug(type(max_rate))
     content = {
@@ -192,7 +212,25 @@ def charts(request):
         'wts': wts,
         'ytm': ytm,
         'yl': yl,
-        'island': island
+        'island': island,
+        'caw_crime_rate': caw_crime_rate,
+        'eastern_crime_rate': eastern_crime_rate,
+        'kowloon_city_crime_rate': kowloon_city_crime_rate,
+        'kwai_tsing_crime_rate': kwai_tsing_crime_rate,
+        'kt_crime_rate': kt_crime_rate,
+        'north_crime_rate': north_crime_rate,
+        'sk_crime_rate': sk_crime_rate,
+        'st_crime_rate': st_crime_rate,
+        'ssp_crime_rate': ssp_crime_rate,
+        'southern_crime_rate': southern_crime_rate,
+        'tp_crime_rate': tp_crime_rate,
+        'tw_crime_rate': tw_crime_rate,
+        'tm_crime_rate': tm_crime_rate,
+        'wc_crime_rate': wc_crime_rate,
+        'wts_crime_rate': wts_crime_rate,
+        'ytm_crime_rate': ytm_crime_rate,
+        'yl_crime_rate': yl_crime_rate,
+        'island_crime_rate': island_crime_rate
     }
 
     return render(request, 'charts.html', content)
