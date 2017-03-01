@@ -72,13 +72,21 @@ WSGI_APPLICATION = 'proj_hkcm.wsgi.application'
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'crimemap',
+    #     'USER': 'root',
+    #     'PASSWORD': 'bitnami',
+    #     'HOST': '127.0.0.1',
+    #     'PORT': '3306',
+    # },
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'crimemap',
-        'USER': 'root',
+        'USER': 'postgres',
         'PASSWORD': 'bitnami',
         'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'PORT': '5432',
     }
 }
 
