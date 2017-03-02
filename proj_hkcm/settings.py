@@ -134,7 +134,7 @@ STATIC_URL = '/static/'
 # Others
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': True,
+    'disable_existing_loggers': False,
     'formatters': {
         'standard': {
             'format': "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
@@ -169,11 +169,12 @@ LOGGING = {
         'django.db.backends': {
             'handlers': ['console'],
             'level': 'DEBUG',
-            'propagate': False,
+            'propagate': True,
         },
         'hkcm': {
             'handlers': ['console', 'logfile'],
             'level': 'DEBUG',
+            'propagate': True,
         },
     }
 }
