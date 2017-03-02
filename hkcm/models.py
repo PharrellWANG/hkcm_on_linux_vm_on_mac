@@ -18,7 +18,7 @@ class Cmdata(models.Model):
     latitude = models.FloatField(null=True)
     longitude = models.FloatField(null=True)
     title = models.CharField(max_length=500)
-    URL = models.CharField(max_length=5000)
+    URL = models.CharField(max_length=2000)
 
     class Meta:
         unique_together = ('title', 'location', 'crime')
@@ -59,28 +59,14 @@ class HongKongEighteenDistricts(models.Model):
     def __str__(self):
         return self.Districts
 
-
 @python_2_unicode_compatible
-class Crimemapinfo(models.Model):
-    # id = models.AutoField()
-    issuetime = models.CharField(max_length=50, blank=True, null=True)
-    location = models.CharField(max_length=50, blank=True, null=True)
-    crime = models.CharField(max_length=50, blank=True, null=True)
-    crimecat = models.CharField(max_length=50, blank=True, null=True)
-    latitude = models.FloatField(blank=True, null=True)
-    longitude = models.FloatField(blank=True, null=True)
-    title = models.CharField(max_length=50)
-    url = models.CharField(db_column='URL', max_length=500, blank=True, null=True)  # Field name made lowercase.
-
-    class Meta:
-        managed = False
-        db_table = 'crimemapinfo'
-        unique_together = (('id', 'title'), ('issuetime', 'location', 'crime'),)
+class latlngMappingDistricts(models.Model):
+    id_in_d = models.FloatField(null=True)
+    # location = models.CharField(max_length=200, unique=True)
+    latitude = models.FloatField(null=True)
+    longitude = models.FloatField(null=True)
+    Districts = models.CharField(max_length=200)
+    # Districts_chn = models.CharField(max_length=200, unique=True)
 
     def __str__(self):
-        return self.crime
-
-# class Choice(models.Model):
-#     question = models.ForeignKey(Question, on_delete=models.CASCADE)
-#     choice_text = models.CharField(max_length=200)
-#     votes = models.IntegerField(default=0)
+        return self.location
