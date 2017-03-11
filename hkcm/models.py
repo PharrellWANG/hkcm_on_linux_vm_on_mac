@@ -21,7 +21,7 @@ class Cmdata(models.Model):
     URL = models.CharField(max_length=2000)
 
     class Meta:
-        unique_together = ('title', 'location', 'crime')
+        unique_together = ('title', 'crime')
 
     def __str__(self):
         return self.title
