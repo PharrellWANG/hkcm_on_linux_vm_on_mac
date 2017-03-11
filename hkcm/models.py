@@ -17,7 +17,7 @@ class Cmdata(models.Model):
     crimecat = models.CharField(max_length=50)
     latitude = models.FloatField(null=True)
     longitude = models.FloatField(null=True)
-    title = models.CharField(max_length=500)
+    title = models.CharField(max_length=500, unique=True)
     URL = models.CharField(max_length=2000)
 
     class Meta:
