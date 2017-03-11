@@ -164,7 +164,8 @@ def charts(request):
                                            southern_crime_rate]
 
     maximum_crime_number = max(list_for_finding_maximum_crime_region)
-    maximum_crime_rate = max(list_for_finding_maximum_crime_rate)
+    maximum_crime_rate____x = max(list_for_finding_maximum_crime_rate)
+
     location_name_of_maximum_crime = "Yau Tsim Mong"
     if maximum_crime_number == ytm:
         location_name_of_maximum_crime = "Yau Tsim Mong"
@@ -204,6 +205,9 @@ def charts(request):
         location_name_of_maximum_crime = "Southern"
 
     loc = location_name_of_maximum_crime
+
+    # maximum_crime_number
+
     log.debug(maximum_crime_number)
     log.debug(total_crimes)
     max_rate = round(float(maximum_crime_number) / total_crimes, 3) * 100
@@ -250,7 +254,14 @@ def charts(request):
         'ytm_crime_rate': ytm_crime_rate,
         'yl_crime_rate': yl_crime_rate,
         'island_crime_rate': island_crime_rate,
-        'maximum_crime_rate': maximum_crime_rate,
+        'maximum_crime_rate____x': maximum_crime_rate____x,
     }
+    log.debug("=========")
+    log.debug("=========")
+    log.debug("=====??????????====")
+    log.debug(maximum_crime_number)
+    log.debug("maximum_crime_rate is: " + str(maximum_crime_rate____x))
+    log.debug("=========")
+    log.debug("")
 
     return render(request, 'charts.html', content)
