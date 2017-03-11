@@ -145,7 +145,26 @@ def charts(request):
     list_for_finding_maximum_crime_region = [caw, eastern, kwai_tsing, kowloon_city,
                                              kt, sk, north, ssp, tp, tw, tm, wc,
                                              wts, ytm, yl, island, st, southern]
+    list_for_finding_maximum_crime_rate = [caw_crime_rate,
+                                           eastern_crime_rate,
+                                           kwai_tsing_crime_rate,
+                                           kowloon_city_crime_rate,
+                                           kt_crime_rate, sk_crime_rate,
+                                           north_crime_rate,
+                                           ssp_crime_rate,
+                                           tp_crime_rate,
+                                           tw_crime_rate,
+                                           tm_crime_rate,
+                                           wc_crime_rate,
+                                           wts_crime_rate,
+                                           ytm_crime_rate,
+                                           yl_crime_rate,
+                                           island_crime_rate,
+                                           st_crime_rate,
+                                           southern_crime_rate]
+
     maximum_crime_number = max(list_for_finding_maximum_crime_region)
+    maximum_crime_rate = max(list_for_finding_maximum_crime_rate)
     location_name_of_maximum_crime = "Yau Tsim Mong"
     if maximum_crime_number == ytm:
         location_name_of_maximum_crime = "Yau Tsim Mong"
@@ -230,7 +249,8 @@ def charts(request):
         'wts_crime_rate': wts_crime_rate,
         'ytm_crime_rate': ytm_crime_rate,
         'yl_crime_rate': yl_crime_rate,
-        'island_crime_rate': island_crime_rate
+        'island_crime_rate': island_crime_rate,
+        'maximum_crime_rate': maximum_crime_rate,
     }
 
     return render(request, 'charts.html', content)
