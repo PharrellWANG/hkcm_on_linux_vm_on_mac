@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'fnsxxod#q=9+#+0yaex%b=q6^2j=e-z4x0v+k5-e81+_&+u9_t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -130,6 +130,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+
+SERVER_EMAIL = 'cs@zwap.hk'
+
+# Email settings
+EMAIL_HOST = 'smtp.zoho.com'
+EMAIL_HOST_USER = 'cs@zwap.hk'
+EMAIL_HOST_PASSWORD = 'zwappltechsuperstrongpasswordyesitsme1234919'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'cs@zwap.hk'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # Others
 LOGGING = {
