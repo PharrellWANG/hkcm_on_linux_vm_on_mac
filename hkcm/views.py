@@ -123,6 +123,7 @@ def charts(request):
         elif str(x.district) == 'Island':
             island += 1
 
+
     caw_crime_rate = round(caw / (246600.0 / 100000), 2)
     eastern_crime_rate = round(eastern / (574500.0 / 100000), 2)
     kowloon_city_crime_rate = round(kowloon_city / (405400.0 / 100000), 2)
@@ -166,53 +167,53 @@ def charts(request):
     maximum_crime_number = max(list_for_finding_maximum_crime_region)
     maximum_crime_rate____x = max(list_for_finding_maximum_crime_rate)
 
-    location_name_of_maximum_crime = "Yau Tsim Mong"
-    if maximum_crime_number == ytm:
+    location_name_of_maximum_crime = "Eastern"
+    if maximum_crime_rate____x == ytm_crime_rate:
         location_name_of_maximum_crime = "Yau Tsim Mong"
-    elif maximum_crime_number == caw:
+    elif maximum_crime_rate____x == caw_crime_rate:
         location_name_of_maximum_crime = "Central & Western"
-    elif maximum_crime_number == eastern:
+    elif maximum_crime_rate____x == eastern_crime_rate:
         location_name_of_maximum_crime = "Eastern"
-    elif maximum_crime_number == kwai_tsing:
+    elif maximum_crime_rate____x == kwai_tsing_crime_rate:
         location_name_of_maximum_crime = "Kwai Tsing"
-    elif maximum_crime_number == kowloon_city:
+    elif maximum_crime_rate____x == kowloon_city_crime_rate:
         location_name_of_maximum_crime = "Kowloon City"
-    elif maximum_crime_number == kt:
+    elif maximum_crime_rate____x == kt_crime_rate:
         location_name_of_maximum_crime = "Kwun Tong"
-    elif maximum_crime_number == sk:
+    elif maximum_crime_rate____x == sk_crime_rate:
         location_name_of_maximum_crime = "Sai Kung"
-    elif maximum_crime_number == north:
+    elif maximum_crime_rate____x == north_crime_rate:
         location_name_of_maximum_crime = "North"
-    elif maximum_crime_number == ssp:
+    elif maximum_crime_rate____x == ssp_crime_rate:
         location_name_of_maximum_crime = "Sham Shui Po"
-    elif maximum_crime_number == tp:
+    elif maximum_crime_rate____x == tp_crime_rate:
         location_name_of_maximum_crime = "Tai Po"
-    elif maximum_crime_number == tw:
+    elif maximum_crime_rate____x == tw_crime_rate:
         location_name_of_maximum_crime = "Tsuen Wan"
-    elif maximum_crime_number == tm:
+    elif maximum_crime_rate____x == tm_crime_rate:
         location_name_of_maximum_crime = "Tuen Mun"
-    elif maximum_crime_number == wc:
+    elif maximum_crime_rate____x == wc_crime_rate:
         location_name_of_maximum_crime = "Wan Chai"
-    elif maximum_crime_number == wts:
+    elif maximum_crime_rate____x == wts_crime_rate:
         location_name_of_maximum_crime = "Wong Tai Sin"
-    elif maximum_crime_number == island:
+    elif maximum_crime_rate____x == island_crime_rate:
         location_name_of_maximum_crime = "Island"
-    elif maximum_crime_number == yl:
+    elif maximum_crime_rate____x == yl_crime_rate:
         location_name_of_maximum_crime = "Yuen Long"
-    elif maximum_crime_number == st:
+    elif maximum_crime_rate____x == st_crime_rate:
         location_name_of_maximum_crime = "Sha Tin"
-    elif maximum_crime_number == southern:
+    elif maximum_crime_rate____x == southern_crime_rate:
         location_name_of_maximum_crime = "Southern"
 
     loc = location_name_of_maximum_crime
 
     # maximum_crime_number
 
-    log.debug(maximum_crime_number)
-    log.debug(total_crimes)
+    # log.debug(maximum_crime_number)
+    # log.debug(total_crimes)
     max_rate = round(float(maximum_crime_number) / total_crimes, 3) * 100
-    log.debug(max_rate)
-    log.debug(type(max_rate))
+    # log.debug(max_rate)
+    # log.debug(type(max_rate))
     content = {
         'max_rate': max_rate,
         'loc': loc,
@@ -256,12 +257,11 @@ def charts(request):
         'island_crime_rate': island_crime_rate,
         'maximum_crime_rate____x': maximum_crime_rate____x,
     }
-    log.debug("=========")
-    log.debug("=========")
-    log.debug("=====??????????====")
-    log.debug(maximum_crime_number)
-    log.debug("maximum_crime_rate is: " + str(maximum_crime_rate____x))
-    log.debug("=========")
-    log.debug("")
+    # log.debug("=========------------------->")
+    # log.debug(maximum_crime_number)
+    # log.debug("maximum_crime_rate is: " + str(maximum_crime_rate____x))
+    # log.debug('loc is : ' + str(loc))
+    # log.debug("=========")
+    # log.debug("")
 
     return render(request, 'charts.html', content)
